@@ -13,12 +13,12 @@ export class CartController {
 
     @Post('add')
     addToProduct(item: [number, number]){
-        this.cartService.addToproduct(item);
+        this.cartService.addToCart(item);
     }    
 
     @Post('remove')
     removeFromProduct(@Body('id') itemId: number){
-        this.cartService.removeFromProduct(itemId);
+        this.cartService.removeFromCart(itemId);
         return {message: 'Item removed'};
     }
 
@@ -30,7 +30,7 @@ export class CartController {
 
     @Post('choose')
     chooseProduct(@Body('value') value: string, @Body('checked') checked: boolean){
-        this.cartService.chooseProduct(value, checked);
+        this.cartService.chooseCart(value, checked);
         return {message: 'Product chosen'};
     }
 

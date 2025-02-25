@@ -9,11 +9,11 @@ export class CartService {
         return this.cart;
     }
 
-    addToproduct(item: [number, number]){
+    addToCart(item: [number, number]){
         this.cart.push(item);
     }
     
-    removeFromProduct(itemId: number){
+    removeFromCart(itemId: number){
         this.cart = this.cart.filter(item => item[0]!== itemId);
     }
 
@@ -21,11 +21,19 @@ export class CartService {
         this.cart = this.cart.map(item => item[0] === itemId ? [itemId, quantity] : item);
     }
 
-    chooseProduct(value: string, checked: boolean){
+    chooseCart(value: string, checked: boolean){
         if(checked){
             this.buy.push(value);
         } else{
             this.buy = this.buy.filter(item => item!== value);
         }
+    }
+    //đặt hàng
+    orderToCart(){
+        this.buy.forEach(item => {
+            //lưu vào hóa đơn
+        });
+        this.cart = [];
+        this.buy = [];
     }
 }
